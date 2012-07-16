@@ -1,0 +1,113 @@
+!!! 5
+%html
+  %head
+    %meta(charset="utf-8")
+    %meta(content="IE=edge,chrome=1" http-equiv="X-UA-Compatible")
+    %title typo3 - little helper
+    %meta(content="This chrome extension makes the work with TYPO3 a little bit easier." name="description")
+    %meta(content="Agentur Simon Wuppertal | Bertram Simon | TYPO3 + Webdesign" name="author")
+    %meta(content="width=device-width" name="viewport")
+    %link(href="stylesheets/styles.css" rel="stylesheet")
+    %base(target="_blank")
+    %script(src="javascripts/jquery.min.js")
+    %script(src="javascripts/scripts.js")
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand(href="http://typo3.org/")
+            %img(alt="Go to TYPO3.org" src="images/logo.png")
+          %ul.nav
+            %li.divider-vertical
+            %li
+              %a(href="http://typo3.org/download/") Downloads
+            %li
+              %a(href="http://typo3.org/extensions/repository/") Extensions
+            %li.divider-vertical
+            %li
+              %a(href="http://wiki.typo3.org/") WIKI
+            %li
+              %a(href="http://typo3.org/news/") News
+            %li
+              %a(href="http://typo3.org/teams/security/security-bulletins/") Security
+            %li.divider-vertical
+            %li
+              %a(href="http://association.typo3.org") Association
+            %li
+              %a(href="http://buzz.typo3.org/") Buzz
+            %li
+              %a(href="http://twitter.com/typo3/") Twitter
+    .main
+      .container
+        .row
+          .span5
+            %form.form-horizontal.well(accept-charset="utf-8" action="http://typo3.org/search/" method="get")<
+              %input.search-query(placeholder="Full TYPO3.org" type="text" name="q" spellcheck="false" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true")
+              %input(type="hidden" name="L" value="0")
+              %input.btn(type="submit" value="Search")
+          .span5
+            %form.form-horizontal.well(accept-charset="utf-8" action="http://typo3.org/extensions/repository/" method="get")<
+              %input.search-query(placeholder="TYPO3 Extensions" aria-autocomplete="list" aria-haspopup="true" autocomplete="off" name="q" role="textbox" type="text")
+              %input(name="L" type="hidden" value="0")
+              %input.btn(type="submit" value="Search")
+        .row
+          .span5
+            %ul.nav.nav-tabs.nav-stacked
+              %li.nav-header
+                TYPO3 documents
+              %li
+                %a(href="http://typo3.org/documentation/document-library/core-documentation/doc_core_inside/current/view/") Inside TYPO3 (doc_core_inside)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/core-documentation/doc_core_tca/current/view/") TCA Reference (doc_core_tca)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/core-documentation/doc_core_tsconfig/current/view/") TSconfig (doc_core_tsconfig)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/core-documentation/doc_core_tsref/current/view/") TSref (doc_core_tsref)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/core-documentation/doc_core_cgl/current/view/") TYPO3 Coding Guidelines (doc_core_cgl)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/core-documentation/doc_core_api/current/view/") TYPO3 Core API (doc_core_api)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/core-documentation/doc_core_services/current/view/") TYPO3 Services (doc_core_services)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/core-documentation/doc_core_skinning/current/view/") TYPO3 Skinning Reference (doc_core_skinning)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/core-documentation/doc_core_ts/current/view/") TypoScript Syntax and In-depth Study (doc_core_ts)
+          .span5
+            %ul.nav.nav-tabs.nav-stacked
+              %li.nav-header
+                TYPO3 common help
+              %li
+                %a(href="http://typo3.org/documentation/videos/current/") TYPO3 Video Tutorials for Editors
+              %li
+                %a(href="http://typo3.org/documentation/document-library/tutorials/current/") TYPO3 Tutorials
+              %li
+                %a(href="http://typo3.org/documentation/articles/") TYPO3 Articles
+              %li
+                %a(href="http://typo3.org/documentation/snippets/") TYPO3 Snippets 
+              %li
+                %a(href="http://typo3.org/documentation/api/") TYPO3 API Documentation
+              %li.nav-header
+                TYPO3 common documents
+              %li
+                %a(href="http://typo3.org/documentation/document-library/guides/doc_l10nguide/current/view/view/") Frontend Localization Guide (doc_l10nguide)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/guides/doc_guide_security/current/view/") Security Guide (doc_guide_security)
+              %li
+                %a(href="http://typo3.org/documentation/document-library/guides/doc_guide_install/current/view/") TYPO3 Installation and Upgrading (doc_guide_install)
+
+    %footer#footer
+      .container
+        .row
+          .span5
+            %p
+              TYPO3 - little helper
+              %span.version
+              was built with
+              %a(href="http://fireapp.handlino.com/")<
+                %img(alt="Go to fire.app" src="images/fire.app.png")<
+          .span5
+            %p.pull-right
+              &copy; 2012 by 
+              %a(href="http://www.agentur-simon.de/" rel="tooltip" title="Agentur Simon. Attractive, fast loading and user-friendly web sites are our trademark. And we love Webdesign and TYPO3.")<
+                Agentur Simon
