@@ -8,6 +8,7 @@
     %meta(content="Agentur Simon Wuppertal | Bertram Simon | TYPO3 + Webdesign" name="author")
     %meta(content="width=device-width" name="viewport")
     %link(href="stylesheets/styles.css" rel="stylesheet")
+    %link(rel="shortcut icon" href="images/16.png")
     %base(target="_blank")
     %script(src="javascripts/jquery.min.js")
     %script(src="javascripts/scripts.js")
@@ -18,25 +19,32 @@
           %a.brand(href="http://typo3.org/")
             %img(alt="Go to TYPO3.org" src="images/logo.png")
           %ul.nav
-            %li.divider-vertical
             %li
               %a(href="http://typo3.org/download/") Downloads
             %li
               %a(href="http://typo3.org/extensions/repository/") Extensions
-            %li.divider-vertical
             %li
               %a(href="http://wiki.typo3.org/") WIKI
             %li
               %a(href="http://typo3.org/news/") News
             %li
               %a(href="http://typo3.org/teams/security/security-bulletins/") Security
-            %li.divider-vertical
             %li
               %a(href="http://association.typo3.org") Association
             %li
               %a(href="http://buzz.typo3.org/") Buzz
             %li
               %a(href="http://twitter.com/typo3/") Twitter
+          %ul.nav.pull-right
+            %li
+              %a.typo3-installtool
+                %i  
+                Installtool
+            %li
+              %a.typo3-login
+                %i
+                Login
+
     .main
       .container
         .row
