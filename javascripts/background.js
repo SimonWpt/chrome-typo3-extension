@@ -21,14 +21,7 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
         });
       }
     }, {
-      title: "TYPO3 Installtool",
-      context: "page",
-      action: function(info, tab) {
-        return chrome.tabs.create({
-          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/install/index.php',
-          index: tab.index + 1
-        });
-      }
+      type: "separator"
     }, {
       title: "Weblist",
       context: "page",
@@ -44,6 +37,15 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
       action: function(info, tab) {
         return chrome.tabs.create({
           url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/tstemplate/ts/index.php',
+          index: tab.index + 1
+        });
+      }
+    }, {
+      title: "Recycler",
+      context: "page",
+      action: function(info, tab) {
+        return chrome.tabs.create({
+          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/mod.php?M=web_txrecyclerM1&SET[depth]=999',
           index: tab.index + 1
         });
       }
@@ -66,20 +68,22 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
         });
       }
     }, {
-      title: "Recycler",
-      context: "page",
-      action: function(info, tab) {
-        return chrome.tabs.create({
-          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/mod.php?M=web_txrecyclerM1&SET[depth]=999',
-          index: tab.index + 1
-        });
-      }
-    }, {
       title: "Permissions",
       context: "page",
       action: function(info, tab) {
         return chrome.tabs.create({
           url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/perm/mod1/index.php?&id=0&SET[depth]=4',
+          index: tab.index + 1
+        });
+      }
+    }, {
+      type: "separator"
+    }, {
+      title: "Backend-User",
+      context: "page",
+      action: function(info, tab) {
+        return chrome.tabs.create({
+          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/mod.php?M=tools_beuser',
           index: tab.index + 1
         });
       }
@@ -93,20 +97,11 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
         });
       }
     }, {
-      title: "Backend-User",
-      context: "page",
-      action: function(info, tab) {
-        return chrome.tabs.create({
-          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/mod.php?M=tools_beuser',
-          index: tab.index + 1
-        });
-      }
-    }, {
       title: "DB Check",
       context: "page",
       action: function(info, tab) {
         return chrome.tabs.create({
-          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/lowlevel/dbint/index.php/typo3/sysext/lowlevel/dbint/index.php',
+          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/lowlevel/dbint/index.php',
           index: tab.index + 1
         });
       }
@@ -120,7 +115,16 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
         });
       }
     }, {
-      title: "Admin Changelog",
+      title: "Installtool",
+      context: "page",
+      action: function(info, tab) {
+        return chrome.tabs.create({
+          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/install/index.php',
+          index: tab.index + 1
+        });
+      }
+    }, {
+      title: "Admin Logs",
       context: "page",
       action: function(info, tab) {
         return chrome.tabs.create({
@@ -147,7 +151,9 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
         });
       }
     }, {
-      title: "TYPO3 Inline User Manual",
+      type: "separator"
+    }, {
+      title: "TYPO3 Manual",
       context: "page",
       action: function(info, tab) {
         return chrome.tabs.create({
@@ -189,11 +195,17 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
 
   while (i < def_context.length) {
     item = def_context[i];
-    id = chrome.contextMenus.create({
-      title: item.title,
-      contexts: [item.context],
-      onclick: item.action
-    });
+    if (item.type === "separator") {
+      id = chrome.contextMenus.create({
+        type: "separator"
+      });
+    } else {
+      id = chrome.contextMenus.create({
+        title: item.title,
+        contexts: [item.context],
+        onclick: item.action
+      });
+    }
     i++;
   }
 

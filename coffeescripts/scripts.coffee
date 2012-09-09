@@ -63,7 +63,7 @@ $ ->
   $(".typo3-dbcheck").click ->
       chrome.tabs.getSelected null, (tab) ->
         chrome.tabs.create
-          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/lowlevel/dbint/index.php/typo3/sysext/lowlevel/dbint/index.php'
+          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/lowlevel/dbint/index.php'
           index: tab.index + 1
   $(".typo3-configuration").click ->
       chrome.tabs.getSelected null, (tab) ->
@@ -85,12 +85,12 @@ $ ->
         chrome.tabs.create
           url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/mod.php?M=tools_txschedulerM1'
           index: tab.index + 1
-  $(".typo3-userhelp").click ->
+  $(".typo3-help_user").click ->
       chrome.tabs.getSelected null, (tab) ->
         chrome.tabs.create
           url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/view_help.php'
           index: tab.index + 1
-  $(".typo3-tsrefhelp").click ->
+  $(".typo3-help_ts").click ->
       chrome.tabs.getSelected null, (tab) ->
         chrome.tabs.create
           url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/tsconfig_help/mod1/index.php'

@@ -96,7 +96,7 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
     $(".typo3-dbcheck").click(function() {
       return chrome.tabs.getSelected(null, function(tab) {
         return chrome.tabs.create({
-          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/lowlevel/dbint/index.php/typo3/sysext/lowlevel/dbint/index.php',
+          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/lowlevel/dbint/index.php',
           index: tab.index + 1
         });
       });
@@ -133,7 +133,7 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
         });
       });
     });
-    $(".typo3-userhelp").click(function() {
+    $(".typo3-help_user").click(function() {
       return chrome.tabs.getSelected(null, function(tab) {
         return chrome.tabs.create({
           url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/view_help.php',
@@ -141,7 +141,7 @@ Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
         });
       });
     });
-    return $(".typo3-tsrefhelp").click(function() {
+    return $(".typo3-help_ts").click(function() {
       return chrome.tabs.getSelected(null, function(tab) {
         return chrome.tabs.create({
           url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + '/typo3/sysext/tsconfig_help/mod1/index.php',
