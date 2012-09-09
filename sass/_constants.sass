@@ -28,3 +28,16 @@ $gridColumns: 10
 $linkColor: $green
 $sansFontFamily: "Share-Regular", Helvetica, Arial, sans-serif
 $sansFontFamily2: "Share-Bold", Helvetica, Arial, sans-serif
+
+@mixin typo3-icon($imgfile)
+  cursor: pointer
+  i
+    background: image-url($imgfile) !important
+    cursor: pointer
+    display: inline-block
+    width: 16px
+    height: 16px
+    line-height: 16px
+    vertical-align: text-top
+    background-position: 16px 16px
+    background-repeat: no-repeat

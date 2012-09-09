@@ -21,27 +21,36 @@ li.nav-header
 // Icons
   
 .typo3-login
-  cursor: pointer
-  i
-    background: image-url("login.png") !important
-    cursor: pointer
-    display: inline-block
-    width: 16px
-    height: 16px
-    line-height: 16px
-    vertical-align: text-top
-    background-position: 16px 16px
-    background-repeat: no-repeat
-
+  @include typo3-icon("login.png")  
 .typo3-installtool 
-  cursor: pointer
-  i
-    background: image-url("installtool.png") !important
-    cursor: pointer
-    display: inline-block
-    width: 16px
-    height: 16px
-    line-height: 16px
-    vertical-align: text-top
-    background-position: 16px 16px
-    background-repeat: no-repeat
+  @include typo3-icon("installtool.png")
+.typo3-weblist
+  @include typo3-icon("weblist.png") 
+.typo3-template
+  @include typo3-icon("template.png") 
+.typo3-pagetree
+  @include typo3-icon("info.png") 
+.typo3-linkvalidator
+  @include typo3-icon("info.png") 
+.typo3-recycler
+  @include typo3-icon("recycler.png") 
+.typo3-permissions
+  @include typo3-icon("permissions.png") 
+.typo3-em
+  @include typo3-icon("em.png") 
+.typo3-beuser
+  @include typo3-icon("beuser.png") 
+.typo3-dbcheck
+  @include typo3-icon("dbcheck.png") 
+.typo3-configuration
+  @include typo3-icon("config.png") 
+.typo3-adminlog
+  @include typo3-icon("logs.png") 
+.typo3-reports
+  @include typo3-icon("logs.png") 
+.typo3-scheduler
+  @include typo3-icon("scheduler.png") 
+.typo3-help_user
+  @include typo3-icon("help_user.png") 
+.typo3-help_ts
+  @include typo3-icon("help_ts.png") 
