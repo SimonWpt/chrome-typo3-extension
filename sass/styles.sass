@@ -7,16 +7,31 @@ body
   font-family: $sansFontFamily
 p
   font-family: $sansFontFamily
+a
+  color: $black80
+  &:hover
+    color: $orange !important
+    background: #fff !important
+  &.brand:hover
+    background: none !important
 
 li.nav-header
   font-family: $sansFontFamily2 !important
+
+
+.navbar-inner
+  background-color: $darkgrey
+  background-image: none
+.navbar .nav > li > a
+  color: #fff
+  text-shadow: none
+  &:hover
+    color: $orange
 #footer 
   img
     vertical-align: top
   p
     color: $black35
-  a
-    color: $orange
 
 // Icons
   
