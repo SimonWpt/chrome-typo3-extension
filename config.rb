@@ -8,5 +8,5 @@ javascripts_dir = "javascripts"
 relative_assets = true
 line_comments = false
 preferred_syntax = :sass
-fireapp_build_path = "chrome.typo3.extension"
-output_style = :compressed # by Fire.app 
+output_style = :compressed # by Fire.app
+fireapp_build_path = "chrome.typo3.extension" 
