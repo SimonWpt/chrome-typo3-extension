@@ -1,4 +1,3 @@
-
 /*
 # 
 # TYPO3 - Little helpers
@@ -10,9 +9,9 @@
 
 
 (function() {
-
   $(function() {
     var openTab;
+
     openTab = function(localUrl) {
       window.localUrl = localUrl;
       return chrome.tabs.getSelected(null, function(tab) {
@@ -24,6 +23,12 @@
     };
     $.getJSON("manifest.json", function(data) {
       return $("span.version").text("[version: " + data.version + "]");
+    });
+    $('#t3ver').FeedEk({
+      FeedUrl: "http://sourceforge.net/api/file/index/project-id/20391/mtime/desc/limit/100/rss",
+      MaxCount: 9,
+      TitleLinkTarget: '_blank',
+      Header: "Latest versions"
     });
     $(".typo3-login").click(function() {
       return openTab("/index.php");

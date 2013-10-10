@@ -1,4 +1,3 @@
-
 /*
 # 
 # TYPO3 - Little helpers

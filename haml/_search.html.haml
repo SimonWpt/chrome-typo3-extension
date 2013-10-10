@@ -1,0 +1,20 @@
+.row
+  .col-xs-6
+    .well.well-sm
+      %form.row.form-inline(accept-charset="utf-8" action="http://typo3.org/search/" method="get" role="form")
+        %input(type="hidden" name="tx_solr[resultsPerPage]" value="50")
+        .form-group.col-sm-9
+          %input.form-control.input-sm.search-query(placeholder="Full TYPO3.org" type="text" name="q" spellcheck="false" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true")
+        .form-group.col-sm-3
+          %button.btn.btn-default.btn-sm(type="submit")
+            Search
+  .col-xs-6
+    .well.well-sm
+      %form.row.form-inline(accept-charset="utf-8" action="http://typo3.org/extensions/repository/" method="get" role="form")
+        %input(type="hidden" name="tx_solr[filter][0]" value="state:stable")
+        %input(type="hidden" name="tx_solr[sort]" value="title%20asc")
+        .form-group.col-sm-9
+          %input.form-control.input-sm.search-query(placeholder="TYPO3 Extensions" aria-autocomplete="list" aria-haspopup="true" autocomplete="off" name="q" role="textbox" type="text")
+        .form-group.col-sm-3
+          %button.btn.btn-default.btn-sm(type="submit")
+            Search
