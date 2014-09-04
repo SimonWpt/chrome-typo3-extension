@@ -1,8 +1,8 @@
 {
   "name": "TYPO3 - Little Helper",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "manifest_version": 2,
-  "description": "This chrome extension makes the work with TYPO3 4.x a little bit easier.",
+  "description": "This chrome extension makes the work with TYPO3 6.x a little bit easier.",
   "background": {
     "scripts": ["javascripts/background.js"]
   },
@@ -11,7 +11,7 @@
   "http://*/*",
   "https://*/*"
   ],
-  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+  "content_security_policy": "script-src 'self'  https://ajax.googleapis.com; object-src 'self'",
   "icons": {
     "128": "images/128.png",
     "64": "images/64.png",
