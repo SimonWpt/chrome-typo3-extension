@@ -41,6 +41,18 @@
   });
 
   chrome.contextMenus.create({
+    title: "Search Wiki",
+    contexts: ["selection"],
+    parentId: t3top,
+    onclick: function(info, tab) {
+      return chrome.tabs.create({
+        url: 'http://wiki.typo3.org/wiki/index.php?search=' + info.selectionText + '&title=Special%3ASearch&fulltext=Search',
+        index: tab.index + 1
+      });
+    }
+  });
+
+  chrome.contextMenus.create({
     title: "Login",
     parentId: t3top,
     onclick: function(info, tab) {
