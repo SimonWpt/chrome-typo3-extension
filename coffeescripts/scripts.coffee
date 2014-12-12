@@ -6,7 +6,7 @@
 # Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
 # 
 ###
-$ ->
+$(document).ready ->
   openTab = (localUrl) ->
     window.localUrl = localUrl
     chrome.tabs.getSelected null, (tab) ->
@@ -16,6 +16,7 @@ $ ->
   
   $.getJSON "manifest.json", (data) ->
     $("span.version").text "[version: " + data.version + "]"
+
 
   $('#t3news').FeedEk
     FeedUrl: "http://feeds.feedburner.com/typo3/MbAQ"
@@ -34,13 +35,14 @@ $ ->
   
   $(".typo3-installtool").click ->
     openTab "/install/index.php"
-  
+
   console.log "\n
-_/_/_/_/_/  _/      _/  _/_/_/      _/_/    _/_/_/\n
-   _/        _/  _/    _/    _/  _/    _/        _/\n
-  _/          _/      _/_/_/    _/    _/    _/_/\n
- _/          _/      _/        _/    _/        _/\n
-_/          _/      _/          _/_/    _/_/_/\n
-\n
+  _/_/_/_/_/  _/      _/  _/_/_/      _/_/    _/_/_/\n
+     _/        _/  _/    _/    _/  _/    _/        _/\n
+    _/          _/      _/_/_/    _/    _/    _/_/\n
+   _/          _/      _/        _/    _/        _/\n
+  _/          _/      _/          _/_/    _/_/_/\n
+  \n
   © 2014 TYPO3 Little Helper by Bertram Simon / Agentur Simon\n
-"
+  "
+  $('[data-toggle="tooltip"]').tooltip()
