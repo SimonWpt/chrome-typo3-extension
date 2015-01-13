@@ -24,16 +24,9 @@
         %li
           %a(href="http://twitter.com/typo3/") Twitter
       %ul.nav.navbar-nav.navbar-right
-        %li.active.dropdown
-          %a.dropdown-toggle(data-toggle="dropdown" href="#")
-            Fast access
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              %a.typo3-login
-                %i
-                Login
-            %li
-              %a.typo3-installtool
-                %i
-                Installtool
+        %li
+          %a.typo3-login(data-toggle="tooltip" data-placement="bottom" title="Backend")
+            %i
+        %li
+          %a.typo3-installtool(data-toggle="tooltip" data-placement="bottom" title="Installtool")
+            %i

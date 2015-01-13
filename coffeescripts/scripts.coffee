@@ -19,13 +19,15 @@ $(document).ready ->
 
 
   $('#t3news').FeedEk
-    FeedUrl: "http://feeds.feedburner.com/typo3/MbAQ"
+    # FeedUrl: "http://feeds.feedburner.com/typo3/MbAQ"
+    FeedUrl: "http://typo3.org/xml-feeds/rss.xml"
     MaxCount : 10
     TitleLinkTarget:'_blank'
     Header: "Latest News"
 
   $('#t3ver').FeedEk
-    FeedUrl: "http://feeds.feedburner.com/sourceforge/PxSy"
+    # FeedUrl: "http://feeds.feedburner.com/sourceforge/PxSy"
+    FeedUrl: "http://sourceforge.net/projects/typo3/rss"
     MaxCount : 10
     TitleLinkTarget:'_blank'
     Header: "Latest versions"

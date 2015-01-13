@@ -2503,6 +2503,7 @@ a:hover { color: #FF8700 !important; }
 a.brand:hover { background: none !important; }
 
 .badge { background: #ffe7cc; }
+.badge.now { background: #FF8700; }
 
 a:hover .badge { background: #FF8700; }
 
@@ -2537,52 +2538,52 @@ li.nav-header { font-family: "Share-Bold", Helvetica, Arial, sans-serif !importa
 #footer p { color: #B9B9B9; }
 
 .typo3-login { cursor: pointer; }
-.typo3-login i { background: url('../images/login.png?1356460786') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-login i { background: url('../images/login.png?1418410617') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-installtool { cursor: pointer; }
-.typo3-installtool i { background: url('../images/installtool.png?1356460785') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-installtool i { background: url('../images/installtool.png?1418410457') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-weblist { cursor: pointer; }
-.typo3-weblist i { background: url('../images/weblist.png?1347200916') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-weblist i { background: url('../images/weblist.png?1347197316') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-template { cursor: pointer; }
-.typo3-template i { background: url('../images/template.png?1356460789') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-template i { background: url('../images/template.png?1356457189') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-pagetree { cursor: pointer; }
-.typo3-pagetree i { background: url('../images/info.png?1356460786') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-pagetree i { background: url('../images/info.png?1356457186') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-linkvalidator { cursor: pointer; }
-.typo3-linkvalidator i { background: url('../images/info.png?1356460786') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-linkvalidator i { background: url('../images/info.png?1356457186') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-recycler { cursor: pointer; }
-.typo3-recycler i { background: url('../images/recycler.png?1347200914') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-recycler i { background: url('../images/recycler.png?1347197314') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-permissions { cursor: pointer; }
-.typo3-permissions i { background: url('../images/permissions.png?1356460788') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-permissions i { background: url('../images/permissions.png?1356457188') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-em { cursor: pointer; }
-.typo3-em i { background: url('../images/em.png?1356460784') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-em i { background: url('../images/em.png?1356457184') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-beuser { cursor: pointer; }
-.typo3-beuser i { background: url('../images/beuser.png?1347200915') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-beuser i { background: url('../images/beuser.png?1347197315') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-dbcheck { cursor: pointer; }
-.typo3-dbcheck i { background: url('../images/dbcheck.png?1356460783') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-dbcheck i { background: url('../images/dbcheck.png?1356457183') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-configuration { cursor: pointer; }
-.typo3-configuration i { background: url('../images/config.png?1347200915') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-configuration i { background: url('../images/config.png?1347197315') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-adminlog { cursor: pointer; }
-.typo3-adminlog i { background: url('../images/logs.png?1347200915') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-adminlog i { background: url('../images/logs.png?1347197315') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-reports { cursor: pointer; }
-.typo3-reports i { background: url('../images/logs.png?1347200915') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-reports i { background: url('../images/logs.png?1347197315') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-scheduler { cursor: pointer; }
-.typo3-scheduler i { background: url('../images/scheduler.png?1347200915') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-scheduler i { background: url('../images/scheduler.png?1347197315') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-help_user { cursor: pointer; }
-.typo3-help_user i { background: url('../images/help_user.png?1347200915') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-help_user i { background: url('../images/help_user.png?1347197315') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
 
 .typo3-help_ts { cursor: pointer; }
-.typo3-help_ts i { background: url('../images/help_ts.png?1347200915') !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
+.typo3-help_ts i { background: url('../images/help_ts.png?1347197315') 0 0 !important; cursor: pointer; display: inline-block; width: 16px; height: 16px; line-height: 16px; vertical-align: text-top; background-position: 16px 16px; background-repeat: no-repeat; }
