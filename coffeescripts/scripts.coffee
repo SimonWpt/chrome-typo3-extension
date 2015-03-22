@@ -10,7 +10,7 @@ $(document).ready ->
   openTab = (localUrl) ->
     window.localUrl = localUrl
     chrome.tabs.getSelected null, (tab) ->
-      chrome.tabs.create 
+      chrome.tabs.create
         url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + "/typo3" + window.localUrl
         index: tab.index + 1
   

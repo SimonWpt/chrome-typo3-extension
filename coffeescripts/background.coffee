@@ -7,9 +7,8 @@
 #
 ###
 
-
 t3top = chrome.contextMenus.create
-  title: "TYP3 - Little Helper"
+  title: "TYPO3 - Little Helper"
   contexts: ["page", "selection"]
 
 chrome.contextMenus.create
