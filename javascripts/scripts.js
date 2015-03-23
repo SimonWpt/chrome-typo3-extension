@@ -2,7 +2,6 @@
  #
  # TYPO3 CMS - Little helpers
  #
- # Function: reading + display version
  # Copyright 2015 by Agentur Simon / Bertram Simon / www.agentur-simon.de
  #
  */

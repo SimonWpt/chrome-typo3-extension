@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "description": "This chrome extension makes the work with TYPO3 6.x a little bit easier.",
   "background": {
-    "scripts": ["javascripts/background.js"]
+    "scripts": ["javascripts/jquery-1.11.2.min.js","javascripts/background.js"]
   },
   "permissions": [
     "tabs",
