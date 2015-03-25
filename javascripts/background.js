@@ -51,16 +51,23 @@ chrome.contextMenus.create({
   }
 });
 
+
 chrome.contextMenus.create({
   "title": "Login",
   "parentId": t3top,
   onclick: function (info, tab) {
-    $.get(tab.url, function( data ) {
-      alert( "Data Loaded: " + data.getElementsByTagName('base')[0].innerHTML );
-    });
-    return chrome.tabs.create({
-      url: xURL(tab.url).protocol + "//" + xURL(tab.url).host + '/typo3/index.php',
-      index: tab.index + 1
+    $.get(tab.url, function (data) {
+      var typo3link;
+      var match = (/<base href="([^"]+)"/.exec(data));
+      if (match === null) {
+        typo3link = xURL(tab.url).protocol + '//' + xURL(tab.url).host + '/typo3/index.php';
+      } else {
+        typo3link = match[1] + 'typo3/index.php';
+      }
+      chrome.tabs.create({
+        url: typo3link,
+        index: tab.index + 1
+      });
     });
   }
 });
@@ -69,12 +76,22 @@ chrome.contextMenus.create({
   "title": "Installtool",
   "parentId": t3top,
   onclick: function (info, tab) {
-    return chrome.tabs.create({
-      url: xURL(tab.url).protocol + "//" + xURL(tab.url).host + '/typo3/sysext/install/Start/Install.php',
-      index: tab.index + 1
+    $.get(tab.url, function (data) {
+      var typo3link;
+      var match = (/<base href="([^"]+)"/.exec(data));
+      if (match === null) {
+        typo3link = xURL(tab.url).protocol + '//' + xURL(tab.url).host + '/typo3/sysext/install/Start/Install.php';
+      } else {
+        typo3link = match[1] + 'typo3/sysext/install/Start/Install.php';
+      }
+      chrome.tabs.create({
+        url: typo3link,
+        index: tab.index + 1
+      });
     });
   }
 });
+
 
 function xURL(url) {
   var qparse = /^(?:([a-z]\w*:))?(?:\/{2,3})?([^\/\?]*)([^\?#]*)(\?[^#]*)?(#.*)?$/i;
