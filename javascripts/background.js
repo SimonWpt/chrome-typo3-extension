@@ -62,7 +62,8 @@ chrome.contextMenus.create({
       if (match === null) {
         typo3link = xURL(tab.url).protocol + '//' + xURL(tab.url).host + '/typo3/index.php';
       } else {
-        typo3link = match[1] + 'typo3/index.php';
+        typo3link = match[1] + '/typo3/index.php';
+        typo3link = typo3link.replace("//typo3/index.php", "/typo3/index.php");
       }
       chrome.tabs.create({
         url: typo3link,
@@ -82,7 +83,8 @@ chrome.contextMenus.create({
       if (match === null) {
         typo3link = xURL(tab.url).protocol + '//' + xURL(tab.url).host + '/typo3/sysext/install/Start/Install.php';
       } else {
-        typo3link = match[1] + 'typo3/sysext/install/Start/Install.php';
+        typo3link = match[1] + '/typo3/sysext/install/Start/Install.php';
+        typo3link = typo3link.replace("//typo3/sysext/install/Start/Install.php", "/typo3/sysext/install/Start/Install.php");
       }
       chrome.tabs.create({
         url: typo3link,
@@ -90,6 +92,19 @@ chrome.contextMenus.create({
       });
     });
   }
+});
+
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  if (xURL(tab.url).pathname.indexOf("/typo3/") >= 0) {
+    return NULL;
+  }
+  $.get(tab.url, function (data) {
+    var match = (/content="TYPO3 (\d+\.\d) CMS"/.exec(data));
+    if (match !== null) {
+      chrome.browserAction.setBadgeBackgroundColor({color: "#000"});
+      chrome.browserAction.setBadgeText({text: match[1], tabId: tab.id});
+    }
+  })
 });
 
 

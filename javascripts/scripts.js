@@ -9,18 +9,6 @@
 
 $(document).ready(
   function openTab() {
-    var openTab;
-
-    openTab = function (localUrl) {
-      window.localUrl = localUrl;
-      return chrome.tabs.getSelected(null, function (tab) {
-        return chrome.tabs.create({
-          url: tab.url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[0] + "/typo3" + window.localUrl,
-          index: tab.index + 1
-        });
-      });
-    };
-
     $.getJSON("manifest.json", function (data) {
       return $("span.version").text("[version: " + data.version + "]");
     });
@@ -39,13 +27,6 @@ $(document).ready(
       Header: "Latest versions"
     });
 
-    $(".typo3-login").click(function () {
-      return openTab("/index.php");
-    });
-
-    $(".typo3-installtool").click(function () {
-      return openTab("/install/index.php");
-    });
 
     console.log("\n" +
     "  _/_/_/_/_/  _/      _/  _/_/_/      _/_/    _/_/_/\n" +
