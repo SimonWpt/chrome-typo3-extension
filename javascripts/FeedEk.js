@@ -2,7 +2,7 @@
   var addZ;
 
   (function(e) {
-    return e.fn.FeedEk = function(t) {
+    e.fn.FeedEk = function(t) {
       var n, r;
 
       n = {
@@ -57,6 +57,7 @@
         }
       });
     };
+    return e.fn.FeedEk;
   })(jQuery);
 
   addZ = function(n) {

@@ -99,12 +99,14 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     return NULL;
   }
   $.get(tab.url, function (data) {
-    var match = (/content="TYPO3 (\d+\.\d) CMS"/.exec(data));
+    var output = $(data).filter('meta[name=generator]').attr("content");
+
+    var match = (/[TYPO3|TYPO3 CMS] (\d+\.\d+)/.exec(output));
     if (match !== null) {
       chrome.browserAction.setBadgeBackgroundColor({color: "#000"});
       chrome.browserAction.setBadgeText({text: match[1], tabId: tab.id});
     }
-  })
+  });
 });
 
 
@@ -121,5 +123,5 @@ function xURL(url) {
     search: parsed[4] || '',
     hash: parsed[5] || '',
     href: url
-  }
+  };
 }
