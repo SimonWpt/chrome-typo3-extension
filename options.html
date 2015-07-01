@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <title>Options</title>
+  <meta content="This chrome extension makes the work with TYPO3 a little bit easier." name="description">
+  <meta content="Agentur Simon Wuppertal | Bertram Simon | TYPO3 + Webdesign" name="author">
+  <link href="stylesheets/styles.css" rel="stylesheet">
+  <link href="images/16.png" rel="shortcut icon">
+  <base target="_blank">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Skip URLs for background version check</h1>
+
+      <p class="well">
+        Some sites generate a hash or security token with every page load. <strong>T3LH</strong> reads the source code from the active tab. It looks for the generator tag to show it on the extension icon. This behavior leads to a broken login, error messages or similar.</p>
+
+      <div class="checkbox">
+        <label> <input type="checkbox" id="skipCheck" value="true"> Turn version check off. </label>
+      </div>
+      <button type="submit" id="save" class="btn btn-orange">Save</button>
+
+      <div id="status" class="alert alert-success" role="alert" style="margin-top: 20px;display: none"></div>
+    </div>
+  </div>
+</div>
+<script src="javascripts/options.js"></script>
+</body>
+</html>

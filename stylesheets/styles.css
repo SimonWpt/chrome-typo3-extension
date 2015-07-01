@@ -98,6 +98,9 @@ li.nav-header {
 #footer p {
   color: #b9b9b9; }
 
+.btn-orange {
+  background: #ff8700; }
+
 .typo3-login {
   cursor: pointer; }
 

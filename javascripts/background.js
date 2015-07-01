@@ -95,9 +95,19 @@ chrome.contextMenus.create({
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-  if (xURL(tab.url).pathname.indexOf("/typo3/") >= 0) {
-    return NULL;
+  var urlParts = ["/typo3/", ":8443/", ":4643/", "chrome://"];
+  for (var i = 0; i < urlParts.length; i++) {
+    if (xURL(tab.url).pathname.indexOf(urlParts[i]) >= 0) {
+      return null;
+    }
   }
+
+  chrome.storage.sync.get("skipCheck", function (data) {
+    if (data["skipCheck"] === true) {
+      return null;
+    }
+  });
+
   $.get(tab.url, function (data) {
     var output = $(data).filter('meta[name=generator]').attr("content");
 
@@ -106,9 +116,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
       chrome.browserAction.setBadgeBackgroundColor({color: "#000"});
       chrome.browserAction.setBadgeText({text: match[1], tabId: tab.id});
     }
+
   });
 });
-
 
 function xURL(url) {
   var qparse = /^(?:([a-z]\w*:))?(?:\/{2,3})?([^\/\?]*)([^\?#]*)(\?[^#]*)?(#.*)?$/i;
