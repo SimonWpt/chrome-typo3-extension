@@ -1,14 +1,13 @@
 {
   "name": "TYPO3 - Little Helper",
-  "version": "1.5",
+  "version": "1.5.1",
   "manifest_version": 2,
   "description": "This chrome extension makes the work with TYPO3 6.x a little bit easier.",
   "background": {
     "scripts": [
       "javascripts/jquery-2.1.3.min.js",
       "javascripts/background.js"
-    ],
-    "persistent": false
+    ]
   },
   "options_page": "options.html",
   "permissions": [

@@ -7,10 +7,7 @@
  #
  */
 
-
-var t3top;
-
-t3top = chrome.contextMenus.create({
+var t3top = chrome.contextMenus.create({
   "title": "TYPO3 - Little Helper",
   "contexts": ["page", "selection"]
 });
@@ -95,30 +92,32 @@ chrome.contextMenus.create({
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-  var urlParts = ["/typo3/", ":8443/", ":4643/", "chrome://"];
+  var urlParts = ["chrome:", "/typo3/", ":8443/", ":4643/"];
   for (var i = 0; i < urlParts.length; i++) {
-    if (xURL(tab.url).pathname.indexOf(urlParts[i]) >= 0) {
-      return null;
+    if (tab.url.indexOf(urlParts[i]) >= 0) {
+      return;
     }
   }
 
-  chrome.storage.sync.get("skipCheck", function (data) {
-    if (data["skipCheck"] === true) {
-      return null;
+  chrome.storage.sync.get({
+    skipCheck: true
+  }, function (items) {
+    if (items.skipCheck === true) {
+      return
     }
-  });
 
-  $.get(tab.url, function (data) {
-    var output = $(data).filter('meta[name=generator]').attr("content");
-
-    var match = (/[TYPO3|TYPO3 CMS] (\d+\.\d+)/.exec(output));
-    if (match !== null) {
-      chrome.browserAction.setBadgeBackgroundColor({color: "#000"});
-      chrome.browserAction.setBadgeText({text: match[1], tabId: tab.id});
-    }
+    $.get(tab.url, function (data) {
+      var output = $(data).filter('meta[name=generator]').attr("content");
+      var match = (/[TYPO3|TYPO3 CMS] (\d+\.\d+)/.exec(output));
+      if (match !== null) {
+        chrome.browserAction.setBadgeBackgroundColor({color: "#000"});
+        chrome.browserAction.setBadgeText({text: match[1], tabId: tab.id});
+      }
+    });
 
   });
 });
+
 
 function xURL(url) {
   var qparse = /^(?:([a-z]\w*:))?(?:\/{2,3})?([^\/\?]*)([^\?#]*)(\?[^#]*)?(#.*)?$/i;
@@ -135,3 +134,4 @@ function xURL(url) {
     href: url
   };
 }
+
