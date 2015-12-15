@@ -48,7 +48,6 @@ chrome.contextMenus.create({
   }
 });
 
-
 chrome.contextMenus.create({
   "title": "Login",
   "parentId": t3top,
@@ -91,33 +90,46 @@ chrome.contextMenus.create({
   }
 });
 
+
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-  var urlParts = ["chrome:", "/typo3/", ":8443/", ":4643/"];
-  for (var i = 0; i < urlParts.length; i++) {
-    if (tab.url.indexOf(urlParts[i]) >= 0) {
-      return;
-    }
-  }
-
-  chrome.storage.sync.get({
-    skipCheck: true
-  }, function (items) {
-    if (items.skipCheck === true) {
-      return
-    }
-
-    $.get(tab.url, function (data) {
-      var output = $(data).filter('meta[name=generator]').attr("content");
-      var match = (/[TYPO3|TYPO3 CMS] (\d+\.\d+)/.exec(output));
-      if (match !== null) {
-        chrome.browserAction.setBadgeBackgroundColor({color: "#000"});
-        chrome.browserAction.setBadgeText({text: match[1], tabId: tab.id});
+  if (changeInfo && changeInfo.status == "complete") {
+    chrome.tabs.executeScript(tabId, {
+        code: 'var content=(content==null)?"content":content;' +
+        'var csMsg=document.querySelector("meta[name=\'generator\']").getAttribute(content);' +
+        'chrome.runtime.sendMessage(csMsg);' +
+        'console.log("Generator: " + csMsg);'
       }
-    });
-
-  });
+    );
+  }
 });
 
+chrome.runtime.onMessage.addListener(
+  function (message) {
+    chrome.storage.sync.get({
+        skipCheck: true
+      }, function (items) {
+        if (items.skipCheck === true) {
+          return
+        }
+
+        var match = (/TYPO3 [^0-9]*(\d+\.\d+)/.exec(message));
+        if (match === null) {
+          return
+        }
+
+        chrome.tabs.query(
+          {currentWindow: true, active: true},
+          function (tabArray) {
+            if (tabArray && tabArray[0]) {
+              chrome.browserAction.setBadgeBackgroundColor({color: "#000"});
+              chrome.browserAction.setBadgeText({text: match[1], tabId: tabArray[0].id});
+            }
+          }
+        );
+      }
+    );
+  }
+);
 
 function xURL(url) {
   var qparse = /^(?:([a-z]\w*:))?(?:\/{2,3})?([^\/\?]*)([^\?#]*)(\?[^#]*)?(#.*)?$/i;
@@ -134,4 +146,3 @@ function xURL(url) {
     href: url
   };
 }
-
