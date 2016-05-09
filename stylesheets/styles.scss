@@ -134,34 +134,9 @@ li.nav-header{
   background: $orange;
 }
 
-.typo3-login{
+.typo3-login {
   cursor: pointer;
 }
-
-.typo3-login i{
-  background: url('../images/login.png?1418410617') 0 0 !important;
-  cursor: pointer;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  line-height: 16px;
-  vertical-align: text-top;
-  background-position: 16px 16px;
-  background-repeat: no-repeat;
-}
-
 .typo3-installtool{
   cursor: pointer;
-}
-
-.typo3-installtool i{
-  background: url('../images/installtool.png?1418410457') 0 0 !important;
-  cursor: pointer;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  line-height: 16px;
-  vertical-align: text-top;
-  background-position: 16px 16px;
-  background-repeat: no-repeat;
 }
