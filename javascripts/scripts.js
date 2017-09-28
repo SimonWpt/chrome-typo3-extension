@@ -25,55 +25,103 @@ $(document).ready(
             return $("span.version").text("[version: " + data.version + "]");
         });
 
-        showFeed('http://query.yahooapis.com/v1/public/yql/agnt/typo3-projects10?format=json', '#t3ver', 'Latest Versions');
-        showFeed('http://query.yahooapis.com/v1/public/yql/agnt/typo3-news10?format=json', '#t3news', 'Latest News');
+        /*
+        --- Login Icons -----------------------------------------------------
+         */
 
         $(".typo3-login").click(function () {
             return openTab("/index.php");
         });
         $(".typo3-installtool").click(function () {
-            return openTab("/install/index.php");
+            return openTab("/sysext/install/Start/Install.php");
         });
 
-        function showFeed(feedurl, id, headline) {
-            var title, link, s = "";
-            $(id).empty();
-            $.ajax({
-                url: feedurl,
-                dataType: "json",
-                success: function (data) {
-                    if (!(data.query.results.item instanceof Array)) {
-                        data.query.results.item = [data.query.results.item];
-                    }
+        /*
+        --- Latest versions -------------------------------------------------
+         */
 
-                    $.each(data.query.results.item, function (e, itm) {
-                        s += '<div class="list-group-item">';
+        $.getJSON("https://get.typo3.org/json", function (data) {
+            var relevantVersions = ["4.5", "4.6", "4.7", "6.0", "6.1", "6.2", "7", "8"];
+            var $t3ver = $("#t3ver")
+                .empty()
+                .append('<div class="list-group-item active">' +
+                    '<a href="https://get.typo3.org/" class="title">' +
+                    'Latest Core</div>');
 
-                        var dt = new Date(itm.pubDate);
-                        var dtn = new Date();
-                        var options = {year: '2-digit', month: '2-digit', day: '2-digit'};
+            $.each(relevantVersions.reverse(), function (key, val) {
+                var version = data[val];
+                var latest = version.latest;
+                var options = {year: '2-digit', month: '2-digit', day: '2-digit'};
+                var ldate = new Date(version.releases[latest].date).toLocaleString('en-US', options);
+                console.log(ldate);
+                $t3ver.append(
+                    '<div class="list-group-item"><span class="badge">' +
+                    ldate +
+                    "</span>" +
+                    '<a href="https://get.typo3.org/' +
+                    latest +
+                    '">' +
+                    latest +
+                    "</a></div>"
+                );
+            });
+            $t3ver.append("</div>");
+        });
 
-                        if (dt.toLocaleDateString('en-US', options) == dtn.toLocaleDateString('en-US', options)) {
-                            s += '<span class="badge now">' + dt.toLocaleDateString('en-US', options) + '</span>';
-                        } else {
-                            s += '<span class="badge">' + dt.toLocaleDateString('en-US', options) + '</span>';
-                        }
-                        if (id == "#t3ver") {
-                            title = itm.title.replace(/^.*(TYPO3) (\d\.\d*\.?\d*).*$/img, "$1 <strong>$2</strong>");
-                            link = decodeURI(itm.link).replace(/(.*TYPO3 \d\.\d*\.?\d*).*/img, "$1");
-                        } else {
-                            title = itm.title;
-                            link = itm.link;
-                        }
+        /*
+        --- Latest news -----------------------------------------------------
+         */
+        jQuery.getFeed({
+            url: 'https://typo3.org/xml-feeds/rss.xml',
+            success: function (feed) {
+                var html = '<div class="list-group">\n' +
+                    '<div class="list-group-item active">' +
+                    '<a href="https://typo3.org/news/" class="title">' +
+                    'Latest news</a></div>';
 
-                        s += '<a href="' + link + '" target="blank">' + title + '</a>';
-                        s += '</div>';
-                    });
-                    $(id).append('<div class="list-group"><div class="list-group-item active">' + headline + '</div>' + s + '</div>');
+                for (var i = 0; i < 3; i++) {
+                    var item = feed.items[i];
+                    var options = {year: 'numeric', month: '2-digit', day: '2-digit'};
+
+                    html += '<div class="list-group-item"><span class="badge">'
+                        + new Date(item.updated).toLocaleString('en-US', options)
+                        + '</span><a href="' + item.link + 'target="blank">'
+                        + item.title
+                        + '</a></div>'
                 }
-            })
-        }
+                jQuery('#t3news').append(html);
+            }
+        });
 
+        /*
+        --- Latest security ---------------------------------------------------
+         */
+        jQuery.getFeed({
+            url: 'https://typo3.org/xml-feeds/security/1/rss.xml',
+            success: function (feed) {
+                var html = '<div class="list-group">\n' +
+                    '<div class="list-group-item active">' +
+                    '<a href="https://typo3.org/teams/security/security-bulletins/" class="title">' +
+                    ' Security bulletins</a></div>';
+
+                for (var i = 0; i < 5; i++) {
+                    var item = feed.items[i];
+                    var options = {year: 'numeric', month: '2-digit', day: '2-digit'};
+
+                    html += '<div class="list-group-item"><span class="badge">'
+                        + new Date(item.updated).toLocaleString('en-US', options)
+                        + '</span><a href="' + item.link + 'target="blank">'
+                        + item.title
+                        + '</a></div>'
+                }
+                jQuery('#t3security').append(html);
+            }
+        });
+
+
+        /*
+        --- Console Log -----------------------------------------------------
+         */
 
         console.log("\n" +
             "  _/_/_/_/_/  _/      _/  _/_/_/      _/_/    _/_/_/\n" +
@@ -81,7 +129,7 @@ $(document).ready(
             "    _/          _/      _/_/_/    _/    _/    _/_/\n" +
             "   _/          _/      _/        _/    _/        _/\n" +
             "  _/          _/      _/          _/_/    _/_/_/\n\n" +
-            "  © 2016 TYPO3 CMS - Little Helper by Bertram Simon / Agentur Simon\n\n\n\n");
+            "  © 2017 TYPO3 CMS - Little Helper by Bertram Simon / Agentur Simon\n\n\n\n");
         return $('[data-toggle="tooltip"]').tooltip();
 
 

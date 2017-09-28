@@ -3,7 +3,7 @@
  # TYPO3 - Little helpers
  #
  # Function: creating context-menus
- # Copyright 2012 by Agentur Simon / Bertram Simon / www.agentur-simon.de
+ # Copyright 2017 by Agentur Simon / Bertram Simon / www.agentur-simon.de
  #
  */
 
@@ -18,7 +18,7 @@ chrome.contextMenus.create({
     parentId: t3top,
     onclick: function (info, tab) {
         return chrome.tabs.create({
-            url: 'http://typo3.org/search/?q=' + info.selectionText + '&tx_solr%5Bfilter%5D%5B1%5D=type%253Atx_terdoc_manuals',
+            url: 'https://docs.typo3.org/search.html?check_keywords=yes&q=' + info.selectionText,
             index: tab.index + 1
         });
     }
@@ -30,7 +30,7 @@ chrome.contextMenus.create({
     parentId: t3top,
     onclick: function (info, tab) {
         return chrome.tabs.create({
-            url: 'http://typo3.org/search/?q=' + info.selectionText + '&tx_solr%5Bfilter%5D%5B0%5D=type%253Atx_terfe2_domain_model_extension',
+            url: 'https://extensions.typo3.org/id=1&tx_solr%5Bq%5D=' + info.selectionText,
             index: tab.index + 1
         });
     }
@@ -42,7 +42,7 @@ chrome.contextMenus.create({
     parentId: t3top,
     onclick: function (info, tab) {
         return chrome.tabs.create({
-            url: 'http://wiki.typo3.org/wiki/index.php?search=' + info.selectionText + '&title=Special%3ASearch&fulltext=Search',
+            url: 'https://wiki.typo3.org/wiki/index.php?search=' + info.selectionText + '&fulltext=Search',
             index: tab.index + 1
         });
     }
@@ -56,6 +56,30 @@ chrome.contextMenus.create({
     onclick: function (info, tab) {
         return chrome.tabs.create({
             url: 'https://forge.typo3.org/search?q=' + info.selectionText,
+            index: tab.index + 1
+        });
+    }
+});
+
+chrome.contextMenus.create({
+    title: "Search Stack Overflow",
+    contexts: ["selection"],
+    parentId: t3top,
+    onclick: function (info, tab) {
+        return chrome.tabs.create({
+            url: 'https://stackoverflow.com/search?q=' + info.selectionText,
+            index: tab.index + 1
+        });
+    }
+});
+
+chrome.contextMenus.create({
+    title: "Search Github",
+    contexts: ["selection"],
+    parentId: t3top,
+    onclick: function (info, tab) {
+        return chrome.tabs.create({
+            url: 'https://github.com/search?utf8=✓&q=' + info.selectionText,
             index: tab.index + 1
         });
     }

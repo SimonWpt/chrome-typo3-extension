@@ -4,7 +4,7 @@
  * and GPL (GPL-license.txt) licenses.
  */
 
-jQuery.getFeed = function(options) {
+jQuery.getFeed = function (options) {
 
     options = jQuery.extend({
 
@@ -19,17 +19,17 @@ jQuery.getFeed = function(options) {
     }, options);
 
     if (options.url) {
-        
-        if (jQuery.isFunction(options.failure) && jQuery.type(options.error)==='null') {
-          // Handle legacy failure option
-          options.error = function(xhr, msg, e){
-            options.failure(msg, e);
-          }
+
+        if (jQuery.isFunction(options.failure) && jQuery.type(options.error) === 'null') {
+            // Handle legacy failure option
+            options.error = function (xhr, msg, e) {
+                options.failure(msg, e);
+            }
         } else if (jQuery.type(options.failure) === jQuery.type(options.error) === 'null') {
-          // Default error behavior if failure & error both unspecified
-          options.error = function(xhr, msg, e){
-            window.console&&console.log('getFeed failed to load feed', xhr, msg, e);
-          }
+            // Default error behavior if failure & error both unspecified
+            options.error = function (xhr, msg, e) {
+                window.console && console.log('getFeed failed to load feed', xhr, msg, e);
+            }
         }
 
         return $.ajax({
@@ -37,8 +37,8 @@ jQuery.getFeed = function(options) {
             url: options.url,
             data: options.data,
             cache: options.cache,
-            dataType: (jQuery.browser.msie) ? "text" : "xml",
-            success: function(xml) {
+            dataType: "xml",
+            success: function (xml) {
                 var feed = new JFeed(xml);
                 if (jQuery.isFunction(options.success)) options.success(feed);
             },
@@ -60,13 +60,9 @@ JFeed.prototype = {
     title: '',
     link: '',
     description: '',
-    parse: function(xml) {
+    parse: function (xml) {
 
-        if (jQuery.browser.msie) {
-            var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-            xmlDoc.loadXML(xml);
-            xml = xmlDoc;
-        }
+
 
         if (jQuery('channel', xml).length == 1) {
 
@@ -83,7 +79,8 @@ JFeed.prototype = {
     }
 };
 
-function JFeedItem() {};
+function JFeedItem() {
+};
 
 JFeedItem.prototype = {
 
@@ -99,9 +96,9 @@ function JAtom(xml) {
 };
 
 JAtom.prototype = {
-    
-    _parse: function(xml) {
-    
+
+    _parse: function (xml) {
+
         var channel = jQuery('feed', xml).eq(0);
 
         this.version = '1.0';
@@ -110,21 +107,21 @@ JAtom.prototype = {
         this.description = jQuery(channel).find('subtitle:first').text();
         this.language = jQuery(channel).attr('xml:lang');
         this.updated = jQuery(channel).find('updated:first').text();
-        
+
         this.items = new Array();
-        
+
         var feed = this;
-        
-        jQuery('entry', xml).each( function() {
-        
+
+        jQuery('entry', xml).each(function () {
+
             var item = new JFeedItem();
-            
+
             item.title = jQuery(this).find('title').eq(0).text();
             item.link = jQuery(this).find('link').eq(0).attr('href');
             item.description = jQuery(this).find('content').eq(0).text();
             item.updated = jQuery(this).find('updated').eq(0).text();
             item.id = jQuery(this).find('id').eq(0).text();
-            
+
             feed.items.push(item);
         });
     }
@@ -134,35 +131,35 @@ function JRss(xml) {
     this._parse(xml);
 };
 
-JRss.prototype  = {
-    
-    _parse: function(xml) {
-    
-        if(jQuery('rss', xml).length == 0) this.version = '1.0';
+JRss.prototype = {
+
+    _parse: function (xml) {
+
+        if (jQuery('rss', xml).length == 0) this.version = '1.0';
         else this.version = jQuery('rss', xml).eq(0).attr('version');
 
         var channel = jQuery('channel', xml).eq(0);
-    
+
         this.title = jQuery(channel).find('title:first').text();
         this.link = jQuery(channel).find('link:first').text();
         this.description = jQuery(channel).find('description:first').text();
         this.language = jQuery(channel).find('language:first').text();
         this.updated = jQuery(channel).find('lastBuildDate:first').text();
-    
+
         this.items = new Array();
-        
+
         var feed = this;
-        
-        jQuery('item', xml).each( function() {
-        
+
+        jQuery('item', xml).each(function () {
+
             var item = new JFeedItem();
-            
+
             item.title = jQuery(this).find('title').eq(0).text();
             item.link = jQuery(this).find('link').eq(0).text();
             item.description = jQuery(this).find('description').eq(0).text();
             item.updated = jQuery(this).find('pubDate').eq(0).text();
             item.id = jQuery(this).find('guid').eq(0).text();
-            
+
             feed.items.push(item);
         });
     }

@@ -1,110 +1,144 @@
-@import url(bt/bootstrap.css);
-@import url(bt/bootstrap-theme.css);
+@import url(bt/bootstrap.min.css);
+@import url(bt/bootstrap-theme.min.css);
+
 .orange {
-  background: #ff8700; }
+    background: #ff8700;
+}
 
 /* Fonts */
 @font-face {
-  font-family: "Share-Regular";
-  src: url("./fonts/Share-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
+    font-family: "Share-Regular";
+    src: url("./fonts/Share-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 @font-face {
-  font-family: "Share-Bold";
-  src: url("./fonts/Share-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal; }
+    font-family: "Share-Bold";
+    src: url("./fonts/Share-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
-  padding: 60px 0 0 0;
-  font-family: "Share-Regular", Helvetica, Arial, sans-serif; }
+    padding: 60px 0 0 0;
+    font-family: "Share-Regular", Helvetica, Arial, sans-serif;
+}
 
 p {
-  font-family: "Share-Regular", Helvetica, Arial, sans-serif; }
+    font-family: "Share-Regular", Helvetica, Arial, sans-serif;
+}
 
+.mb10{
+    margin-bottom: 10px;
+}
 a {
-  color: #515151; }
+    color: #515151;
+}
 
 a:hover {
-  color: #ff8700 !important; }
+    color: #ff8700 !important;
+}
 
 a.brand:hover {
-  background: none !important; }
+    background: none !important;
+}
 
 .badge {
-  background: #ffe7cc; }
+    background: #ff8700;
+    font-weight: 300;
+}
 
-.badge.now {
-  background: #ff8700; }
+a.title {
+    color: #fff;
+    text-shadow: none;
+    text-decoration: none;
+}
 
-a:hover .badge {
-  background: #ff8700; }
 
 .container {
-  max-width: none !important;
-  width: 780px; }
+    max-width: none !important;
+    width: 780px;
+}
 
 li.nav-header {
-  font-family: "Share-Bold", Helvetica, Arial, sans-serif !important; }
+    font-family: "Share-Bold", Helvetica, Arial, sans-serif !important;
+}
 
 .list-group {
-  margin-bottom: 10px; }
+    margin-bottom: 10px;
+}
 
 .list-group-item {
-  padding: 8px 15px; }
+    padding: 8px 15px;
+}
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-  background-color: #2a2a2a; }
+    background-color: #2a2a2a;
+}
 
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-  background-color: #2a2a2a;
-  border-color: #2a2a2a;
-  background-image: none; }
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+    background-image: none;
+}
 
 .navbar-inverse .navbar-nav > .dropdown > a:hover .caret {
-  border-top-color: #ff8700;
-  border-bottom-color: #ff8700; }
+    border-top-color: #ff8700;
+    border-bottom-color: #ff8700;
+}
 
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
-  border-top-color: #fff;
-  border-bottom-color: #fff; }
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
 
 .form-control:focus {
-  border-color: #8c8c8c;
-  outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.2); }
+    border-color: #8c8c8c;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.2);
+}
 
 .btn-warning {
-  margin-right: 20px; }
+    margin-right: 20px;
+}
 
 .navbar-inverse {
-  background-color: #2a2a2a;
-  background-image: none; }
+    background-color: #2a2a2a;
+    background-image: none;
+}
 
 .brand img {
-  padding-top: 10px;
-  padding-bottom: 20px; }
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
 
 .navbar .nav > li > a {
-  color: #fff;
-  font-size: 14px;
-  text-shadow: none; }
+    color: #fff;
+    font-size: 14px;
+    text-shadow: none;
+}
 
 .navbar .nav > li > a:hover {
-  color: #ff8700; }
+    color: #ff8700;
+}
 
 #footer img {
-  vertical-align: top; }
+    vertical-align: top;
+}
 
 #footer p {
-  color: #b9b9b9; }
+    color: #b9b9b9;
+}
 
 .btn-orange {
-  background: #ff8700; }
+    background: #ff8700;
+}
 
 .typo3-login {
-  cursor: pointer; }
+    cursor: pointer;
+}
 
 .typo3-installtool {
-  cursor: pointer; }
-
-/*# sourceMappingURL=styles.css.map */
+    cursor: pointer;
+}
