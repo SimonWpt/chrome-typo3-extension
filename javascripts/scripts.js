@@ -1,9 +1,10 @@
 /*
- #
- # TYPO3 CMS - Little helpers
- #
- # Copyright 2016 by Agentur Simon / Bertram Simon / www.agentur-simon.de
- #
+ *
+ * @author Bertram Simon <b.simon@agentur-simon.de>
+ * @copyright 2017 by Bertram Simon
+ * @filename scripts.js
+ * @lastmodfied 29.09.17 17:20
+ *
  */
 
 

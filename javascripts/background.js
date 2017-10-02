@@ -1,10 +1,10 @@
 /*
- #
- # TYPO3 - Little helpers
- #
- # Function: creating context-menus
- # Copyright 2017 by Agentur Simon / Bertram Simon / www.agentur-simon.de
- #
+ *
+ * @author Bertram Simon <b.simon@agentur-simon.de>
+ * @copyright 2017 by Bertram Simon
+ * @filename background.js
+ * @lastmodfied 29.09.17 17:20
+ *
  */
 
 var t3top = chrome.contextMenus.create({
