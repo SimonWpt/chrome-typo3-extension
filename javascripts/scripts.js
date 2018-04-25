@@ -54,7 +54,6 @@ $(document).ready(
                 var latest = version.latest;
                 var options = {year: '2-digit', month: '2-digit', day: '2-digit'};
                 var ldate = new Date(version.releases[latest].date).toLocaleString('en-US', options);
-                console.log(ldate);
                 $t3ver.append(
                     '<div class="list-group-item"><span class="badge">' +
                     ldate +
@@ -73,14 +72,14 @@ $(document).ready(
         --- Latest news -----------------------------------------------------
          */
         jQuery.getFeed({
-            url: 'https://typo3.org/xml-feeds/rss.xml',
+            url: 'https://typo3.org/?type=100',
             success: function (feed) {
                 var html = '<div class="list-group">\n' +
                     '<div class="list-group-item active">' +
                     '<a href="https://typo3.org/news/" class="title">' +
                     'Latest news</a></div>';
 
-                for (var i = 0; i < 3; i++) {
+                for (var i = 0; i < 8; i++) {
                     var item = feed.items[i];
                     var options = {year: 'numeric', month: '2-digit', day: '2-digit'};
 
@@ -94,30 +93,6 @@ $(document).ready(
             }
         });
 
-        /*
-        --- Latest security ---------------------------------------------------
-         */
-        jQuery.getFeed({
-            url: 'https://typo3.org/xml-feeds/security/1/rss.xml',
-            success: function (feed) {
-                var html = '<div class="list-group">\n' +
-                    '<div class="list-group-item active">' +
-                    '<a href="https://typo3.org/teams/security/security-bulletins/" class="title">' +
-                    ' Security bulletins</a></div>';
-
-                for (var i = 0; i < 5; i++) {
-                    var item = feed.items[i];
-                    var options = {year: 'numeric', month: '2-digit', day: '2-digit'};
-
-                    html += '<div class="list-group-item"><span class="badge">'
-                        + new Date(item.updated).toLocaleString('en-US', options)
-                        + '</span><a href="' + item.link + 'target="blank">'
-                        + item.title
-                        + '</a></div>'
-                }
-                jQuery('#t3security').append(html);
-            }
-        });
 
 
         /*
