@@ -1,9 +1,9 @@
 /*
  *
  * @author Bertram Simon <b.simon@agentur-simon.de>
- * @copyright 2017 by Bertram Simon
+ * @copyright 2018 by Bertram Simon
  * @filename background.js
- * @lastmodfied 29.09.17 17:20
+ * @lastmodfied 25.04.18 20:16
  *
  */
 
