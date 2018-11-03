@@ -9,143 +9,150 @@
 @import url(bt/bootstrap.min.css);
 @import url(bt/bootstrap-theme.min.css);
 
-.orange {
-    background: #ff8700;
+.orange{
+  background: #ff8700;
 }
 
 /* Fonts */
-@font-face {
-    font-family: "Share-Regular";
-    src: url("./fonts/Share-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+@font-face{
+  font-family: "Share-Regular";
+  src: url("./fonts/Share-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@font-face {
-    font-family: "Share-Bold";
-    src: url("./fonts/Share-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
+@font-face{
+  font-family: "Share-Bold";
+  src: url("./fonts/Share-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
-body {
-    padding: 60px 0 0 0;
-    font-family: "Share-Regular", Helvetica, Arial, sans-serif;
+body{
+  padding: 60px 0 0 0;
+  font-family: "Share-Regular", Helvetica, Arial, sans-serif;
 }
 
-p {
-    font-family: "Share-Regular", Helvetica, Arial, sans-serif;
+p{
+  font-family: "Share-Regular", Helvetica, Arial, sans-serif;
 }
 
 .mb10{
-    margin-bottom: 10px;
-}
-a {
-    color: #515151;
+  margin-bottom: 10px;
 }
 
-a:hover {
-    color: #ff8700 !important;
+a{
+  color: #515151;
 }
 
-a.brand:hover {
-    background: none !important;
+a:hover{
+  color: #ff8700 !important;
 }
 
-.badge {
-    background: #ff8700;
-    font-weight: 300;
+a.brand:hover{
+  background: none !important;
 }
 
-a.title {
-    color: #fff;
-    text-shadow: none;
-    text-decoration: none;
+.badge{
+  background: #ff8700;
+  font-weight: 300;
 }
 
-.container {
-    max-width: none !important;
-    width: 780px;
+a.title{
+  color: #fff;
+  text-shadow: none;
+  text-decoration: none;
 }
 
-li.nav-header {
-    font-family: "Share-Bold", Helvetica, Arial, sans-serif !important;
+a.security, a.security:hover{
+  color: #f00 !important;
+}
+span.regular{
+  color: #a2a2a2 !important;
+}
+.container{
+  max-width: none !important;
+  width: 780px;
 }
 
-.list-group {
-    margin-bottom: 10px;
+li.nav-header{
+  font-family: "Share-Bold", Helvetica, Arial, sans-serif !important;
 }
 
-.list-group-item {
-    padding: 8px 15px;
+.list-group{
+  margin-bottom: 10px;
 }
 
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    background-color: #2a2a2a;
+.list-group-item{
+  padding: 8px 15px;
 }
 
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-    background-color: #2a2a2a;
-    border-color: #2a2a2a;
-    background-image: none;
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
+  background-color: #2a2a2a;
 }
 
-.navbar-inverse .navbar-nav > .dropdown > a:hover .caret {
-    border-top-color: #ff8700;
-    border-bottom-color: #ff8700;
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus{
+  background-color: #2a2a2a;
+  border-color: #2a2a2a;
+  background-image: none;
 }
 
-.navbar-inverse .navbar-nav > .dropdown > a .caret {
-    border-top-color: #fff;
-    border-bottom-color: #fff;
+.navbar-inverse .navbar-nav > .dropdown > a:hover .caret{
+  border-top-color: #ff8700;
+  border-bottom-color: #ff8700;
 }
 
-.form-control:focus {
-    border-color: #8c8c8c;
-    outline: 0;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.2);
+.navbar-inverse .navbar-nav > .dropdown > a .caret{
+  border-top-color: #fff;
+  border-bottom-color: #fff;
 }
 
-.btn-warning {
-    margin-right: 20px;
+.form-control:focus{
+  border-color: #8c8c8c;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-.navbar-inverse {
-    background-color: #2a2a2a;
-    background-image: none;
+.btn-warning{
+  margin-right: 20px;
 }
 
-.brand img {
-    padding-top: 10px;
-    padding-bottom: 20px;
+.navbar-inverse{
+  background-color: #2a2a2a;
+  background-image: none;
 }
 
-.navbar .nav > li > a {
-    color: #fff;
-    font-size: 14px;
-    text-shadow: none;
+.brand img{
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
-.navbar .nav > li > a:hover {
-    color: #ff8700;
+.navbar .nav > li > a{
+  color: #fff;
+  font-size: 14px;
+  text-shadow: none;
 }
 
-#footer img {
-    vertical-align: top;
+.navbar .nav > li > a:hover{
+  color: #ff8700;
 }
 
-#footer p {
-    color: #b9b9b9;
+#footer img{
+  vertical-align: top;
 }
 
-.btn-orange {
-    background: #ff8700;
+#footer p{
+  color: #b9b9b9;
 }
 
-.typo3-login {
-    cursor: pointer;
+.btn-orange{
+  background: #ff8700;
 }
 
-.typo3-installtool {
-    cursor: pointer;
+.typo3-login{
+  cursor: pointer;
+}
+
+.typo3-installtool{
+  cursor: pointer;
 }

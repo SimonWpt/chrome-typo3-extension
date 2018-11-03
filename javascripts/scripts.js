@@ -1,4 +1,4 @@
-$(function createContent() {
+$(function () {
 
   let openTab = function (localUrl) {
     window.localUrl = localUrl;
@@ -34,12 +34,21 @@ $(function createContent() {
     let $t3ver = $("#t3ver").append('<div class="list-group-item active"><a href="https://get.typo3.org/" class="title">Latest Core</div>');
     $.each(relevantVersions.reverse(), (key, val) => {
         let version = data[val];
-        let latest = version.latest;
+        const latest = version.latest;
         let options = {year: 'numeric', month: '2-digit', day: '2-digit'};
-        let ldate = new Date(version.releases[latest].date).toLocaleString('en-US', options);
-        $t3ver.append(
-          `<div class="list-group-item"><span class="badge">${ldate}</span><a href="https://get.typo3.org/release-notes/${latest}">${latest}</a></div>`
-        );
+        const ldate = new Date(version.releases[latest].date).toLocaleString('en-US', options);
+        let tpl = `<div class="list-group-item"><span class="badge">${ldate}</span><a href="https://get.typo3.org/release-notes/${latest}"  data-toggle="dropdown" aria-haspopup="true">${latest} <span class="caret"></span></a> `;
+        tpl = tpl + `<ul class="dropdown-menu">`;
+        $.each(version.releases, (key2, val2) => {
+          if (val2.type === "security") {
+            tpl = tpl + `<li><a href="https://get.typo3.org/release-notes/${key2}" class="security">${key2} ${val2.type}</a></li>`
+          } else {
+            tpl = tpl + `<li><a href="https://get.typo3.org/release-notes/${key2}">${key2} <span class="regular">${val2.type}</span></a></li>`
+          }
+        });
+        tpl = tpl + `</ul>`;
+        $t3ver.append(tpl);
+
       }
     );
     $t3ver.append("</div>");
@@ -76,6 +85,4 @@ $(function createContent() {
     "  _/          _/      _/          _/_/    _/_/_/\n\n" +
     "  © 2018 TYPO3 CMS - Little Helper by Bertram Simon / Agentur Simon\n\n\n\n");
   return $('[data-toggle="tooltip"]').tooltip();
-
-
 });
