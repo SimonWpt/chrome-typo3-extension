@@ -1,7 +1,6 @@
-$(function openTab() {
-  let openTab;
+$(function createContent() {
 
-  openTab = function (localUrl) {
+  let openTab = function (localUrl) {
     window.localUrl = localUrl;
     return chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
       return chrome.tabs.create({
@@ -58,11 +57,7 @@ $(function openTab() {
         let item = feed.items[i];
         let options = {year: 'numeric', month: '2-digit', day: '2-digit'};
 
-        html += '<div class="list-group-item"><span class="badge">'
-          + new Date(item.updated).toLocaleString('en-US', options)
-          + '</span><a href="' + item.link + '" target="blank">'
-          + item.title
-          + '</a></div>'
+        html += '<div class="list-group-item"><span class="badge">' + new Date(item.updated).toLocaleString('en-US', options) + '</span><a href="' + item.link + '" target="blank">' + item.title + '</a></div>'
       }
       $("#t3news").append(html);
     }
