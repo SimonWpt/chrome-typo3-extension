@@ -1,11 +1,13 @@
 {
   "name": "TYPO3 - Little Helper",
-  "version": "1.8.3",
+  "version": "1.8.4",
   "manifest_version": 2,
   "description": "This chrome extension makes the work with TYPO3 a little bit easier.",
   "background": {
     "scripts": [
       "javascripts/jquery-3.2.1.min.js",
+      "javascripts/bootstrap.min.js",
+      "javascripts/jquery.jfeed.js",
       "javascripts/background.js",
       "javascripts/scripts.js"
     ]
