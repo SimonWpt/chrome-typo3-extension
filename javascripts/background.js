@@ -30,7 +30,7 @@ chrome.contextMenus.create({
   parentId: t3top,
   onclick: function (info, tab) {
     return chrome.tabs.create({
-      url: 'https://extensions.typo3.org/id=1&tx_solr%5Bq%5D=' + info.selectionText,
+      url: 'https://extensions.typo3.org/?id=1&tx_solr%5Bq%5D=' + info.selectionText,
       index: tab.index + 1
     });
   }
