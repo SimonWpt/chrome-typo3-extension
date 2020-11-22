@@ -1,6 +1,6 @@
 {
   "name": "TYPO3 - Little Helper",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "manifest_version": 2,
   "description": "This chrome extension makes the work with TYPO3 a little bit easier.",
   "background": {
@@ -18,7 +18,7 @@
     "http://*/*",
     "https://*/*"
   ],
-  "content_security_policy": "script-src 'self'",
+  "content_security_policy": "style-src 'self'; script-src 'self'; object-src 'self'",
   "icons": {
     "128": "images/128.png",
     "64": "images/64.png",
