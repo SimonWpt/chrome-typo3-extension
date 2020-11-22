@@ -18,7 +18,7 @@
     "http://*/*",
     "https://*/*"
   ],
-  "content_security_policy": "script-src 'self'  https://query.yahooapis.com; object-src 'self'",
+  "content_security_policy": "script-src 'self'",
   "icons": {
     "128": "images/128.png",
     "64": "images/64.png",
