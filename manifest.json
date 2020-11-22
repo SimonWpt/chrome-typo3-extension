@@ -1,6 +1,6 @@
 {
   "name": "TYPO3 - Little Helper",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "manifest_version": 2,
   "description": "This chrome extension makes the work with TYPO3 a little bit easier.",
   "background": {

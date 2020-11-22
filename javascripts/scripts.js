@@ -22,7 +22,7 @@ $(function () {
     return openTab("/index.php");
   });
   $(".typo3-installtool").on("click", function () {
-    return openTab("/sysext/install/Start/Install.php");
+    return openTab("/install.php");
   });
 
   /*
@@ -30,13 +30,12 @@ $(function () {
    */
 
   $.getJSON("https://get.typo3.org/json", data => {
-    const relevantVersions = ["4.5", "4.6", "4.7", "6.0", "6.1", "6.2", "7", "8", "9"];
+    const relevantVersions = ["7", "8", "9", "10"];
     let $t3ver = $("#t3ver").append('<div class="list-group-item active"><a href="https://get.typo3.org/" class="title">Latest Core</div>');
     $.each(relevantVersions.reverse(), (key, val) => {
         let version = data[val];
         const latest = version.latest;
-        let options = {year: 'numeric', month: '2-digit', day: '2-digit'};
-        const ldate = new Date(version.releases[latest].date).toLocaleString('en-US', options);
+        const ldate = version.releases[latest].date.substring(2, 11);
         let tpl = `<div class="list-group-item"><span class="badge">${ldate}</span><a href="https://get.typo3.org/release-notes/${latest}"  data-toggle="dropdown" aria-haspopup="true">${latest} <span class="caret"></span></a> `;
         tpl = tpl + `<ul class="dropdown-menu">`;
         $.each(version.releases, (key2, val2) => {
@@ -83,6 +82,6 @@ $(function () {
     "    _/          _/      _/_/_/    _/    _/    _/_/\n" +
     "   _/          _/      _/        _/    _/        _/\n" +
     "  _/          _/      _/          _/_/    _/_/_/\n\n" +
-    "  © 2018 TYPO3 CMS - Little Helper by Bertram Simon / Agentur Simon\n\n\n\n");
+    "  © 2020 TYPO3 CMS - Little Helper by Bertram Simon / Agentur Simon\n\n\n\n");
   return $('[data-toggle="tooltip"]').tooltip();
 });
