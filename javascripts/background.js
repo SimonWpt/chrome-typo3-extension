@@ -1,9 +1,8 @@
 /*
  *
  * @author Bertram Simon <b.simon@wppt.de>
- * @copyright 2020 by Bertram Simon
  * @filename background.js
- * @lastmodfied 25.04.18 20:16
+
  *
  */
 
@@ -13,7 +12,19 @@ var t3top = chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
-    title: "Search Documentation",
+    title: "Search on TYPO3.org",
+    contexts: ["selection"],
+    parentId: t3top,
+    onclick: function (info, tab) {
+        return chrome.tabs.create({
+            url: 'https://typo3.org/search?q=' + info.selectionText,
+            index: tab.index + 1
+        });
+    }
+});
+
+chrome.contextMenus.create({
+    title: "Search on TYPO3 Docs",
     contexts: ["selection"],
     parentId: t3top,
     onclick: function (info, tab) {
@@ -25,7 +36,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
-    title: "Search Extensions",
+    title: "Search on TYPO3 Extensions",
     contexts: ["selection"],
     parentId: t3top,
     onclick: function (info, tab) {
@@ -37,7 +48,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
-    title: "Search Wiki",
+    title: "Search on TYPO3 Wiki",
     contexts: ["selection"],
     parentId: t3top,
     onclick: function (info, tab) {
@@ -50,7 +61,7 @@ chrome.contextMenus.create({
 
 
 chrome.contextMenus.create({
-    title: "Search Forge",
+    title: "Search on TYPO3 Forge",
     contexts: ["selection"],
     parentId: t3top,
     onclick: function (info, tab) {
@@ -62,7 +73,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
-    title: "Search Stack Overflow",
+    title: "Search on Stack Overflow",
     contexts: ["selection"],
     parentId: t3top,
     onclick: function (info, tab) {
@@ -74,12 +85,24 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
-    title: "Search Github",
+    title: "Search on Github",
     contexts: ["selection"],
     parentId: t3top,
     onclick: function (info, tab) {
         return chrome.tabs.create({
             url: 'https://github.com/search?utf8=✓&q=' + info.selectionText,
+            index: tab.index + 1
+        });
+    }
+});
+
+chrome.contextMenus.create({
+    title: "Search on Twitter",
+    contexts: ["selection"],
+    parentId: t3top,
+    onclick: function (info, tab) {
+        return chrome.tabs.create({
+            url: 'https://twitter.com/search?q=' + info.selectionText + '&src=typed_query',
             index: tab.index + 1
         });
     }
