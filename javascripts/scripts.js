@@ -30,7 +30,7 @@ $(function () {
    */
 
   $.getJSON("https://get.typo3.org/json", data => {
-    const relevantVersions = ["7", "8", "9", "10"];
+    const relevantVersions = ["7", "8", "9", "10", "11"];
     let $t3ver = $("#t3ver").append('<div class="list-group-item active"><a href="https://get.typo3.org/" class="title">Latest Core</div>');
     $.each(relevantVersions.reverse(), (key, val) => {
         let version = data[val];
@@ -82,6 +82,6 @@ $(function () {
     "    _/          _/      _/_/_/    _/    _/    _/_/\n" +
     "   _/          _/      _/        _/    _/        _/\n" +
     "  _/          _/      _/          _/_/    _/_/_/\n\n" +
-    "  © 2020 TYPO3 CMS - Little Helper by Bertram Simon / Agentur Simon\n\n\n\n");
+    "  © 2021 TYPO3 CMS - Little Helper by Bertram Simon / Agentur Simon\n\n\n\n");
   return $('[data-toggle="tooltip"]').tooltip();
 });
